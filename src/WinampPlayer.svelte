@@ -9,14 +9,14 @@
       initialTracks: [
         {
           metaData: {
-            title: "Sample Track",
-            artist: "Sample Artist"
+            title: "Internet Changed my Life",
+            artist: "A P F L"
           },
-          url: "URL_ZU_DEINER_AUDIODATEI"
+          url: "https://github.com/rafaelreis-hotmart/Audio-Sample-files/raw/master/sample.mp3"
         }
       ],
       initialSkin: {
-        url: "URL_ZU_DEINEM_WINAMP_SKIN"
+        url: "https://sadhost.neocities.org/etc/TetAtck.wsz"
       }
     });
 

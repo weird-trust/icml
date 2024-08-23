@@ -14,6 +14,6 @@
     "vite": "^5.4.1"
   },
   "dependencies": {
-    "webamp": "^0.0.0-next-bd2022a8"
+     "webamp": "1.5.0"
   }
 }
