@@ -9,40 +9,81 @@
       initialTracks: [
         {
           metaData: {
-            title: "Internet Changed my Life",
+            title: "ARP505-Jonas-Gottlieb-Afterhour-Mix",
             artist: "A P F L"
           },
-          url: "TRACK_URL"
+          url: "/audio/ARP505-Jonas-Gottlieb-Afterhour-Mix.mp3"
+        },
+        {
+          metaData: {
+            title: "ARP505",
+            artist: "A P F L"
+          },
+          url: "/audio/ARP505.mp3"
+        },
+        {
+          metaData: {
+            title: "Dad-Groove",
+            artist: "A P F L"
+          },
+          url: "/audio/Dad-Groove.mp3"
+        },
+        {
+          metaData: {
+            title: "Internet_Life",
+            artist: "A P F L"
+          },
+          url: "/audio/Internet_Life.mp3"
+        },
+        {
+          metaData: {
+            title: "Neuro-Anwohner-Easly-Mix",
+            artist: "A P F L"
+          },
+          url: "/audio/Neuro-Anwohner-Easly-Mix.mp3"
+        },
+        {
+          metaData: {
+            title: "Neuro",
+            artist: "A P F L"
+          },
+          url: "/audio/Neuro.mp3"
+        },
+        {
+          metaData: {
+            title: "T6-Christian-Kluge-Remix",
+            artist: "A P F L"
+          },
+          url: "/audio/T6-Christian-Kluge-Remix.mp3"
+        },
+        {
+          metaData: {
+            title: "T6",
+            artist: "A P F L"
+          },
+          url: "/audio/T6.mp3"
+        },
+        {
+          metaData: {
+            title: "Vactrol-Funk-SV-Breakpoint-Mix.mp3",
+            artist: "A P F L"
+          },
+          url: "/audio/Vactrol-Funk-SV-Breakpoint-Mix.mp3"
+        },
+        {
+          metaData: {
+            title: "Vactrol",
+            artist: "A P F L"
+          },
+          url: "/audio/Vactrol.mp3"
         }
       ],
       initialSkin: {
-        url: "Internet_Exlorer_Amp_2.wsz"
+        url: "/Internet_Exlorer_Amp_2.wsz"
       }
     });
 
     webamp.renderWhenReady(document.getElementById("winamp-container"));
-
-    // SoundCloud API Integration
-    const CLIENT_ID = "weird-trust";
-    const TRACK_URL = "https://soundcloud.com/weird-trust/test";
-    const CORS_PROXY = "https://api.allorigins.win/get?url=";
-    const SC_API_URL = `${CORS_PROXY}https://api.soundcloud.com/resolve?url=${TRACK_URL}&client_id=${CLIENT_ID}`;
-
-    fetch(SC_API_URL)
-      .then((response) => response.json())
-      .then((data) => {
-        const track = {
-          metaData: {
-            title: data.contents.title,
-            artist: data.contents.user.username
-          },
-          url: `${data.contents.stream_url}?client_id=${CLIENT_ID}`
-        };
-        webamp.appendTracks([track]);
-      })
-      .catch((error) =>
-        console.error("Error fetching SoundCloud track:", error)
-      );
   });
 </script>
 
