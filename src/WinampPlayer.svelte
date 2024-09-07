@@ -12,54 +12,37 @@
             title: "Internet Changed my Life",
             artist: "A P F L"
           },
-          url: "https://github.com/rafaelreis-hotmart/Audio-Sample-files/raw/master/sample.mp3"
+          url: "TRACK_URL"
         }
       ],
       initialSkin: {
-        url: "https://sadhost.neocities.org/etc/TetAtck.wsz"
+        url: "public/Internet_Exlorer_Amp_2.wsz"
       }
     });
 
     webamp.renderWhenReady(document.getElementById("winamp-container"));
 
     // SoundCloud API Integration
-    const CLIENT_ID = "DEIN_SOUNDCLOUD_CLIENT_ID";
-    const TRACK_URL = "URL_ZU_DEINEM_SOUNDCLOUD_TRACK";
-    const SC_API_URL = `https://api.soundcloud.com/resolve?url=${TRACK_URL}&client_id=${CLIENT_ID}`;
+    const CLIENT_ID = "weird-trust";
+    const TRACK_URL = "https://soundcloud.com/weird-trust/test";
+    const CORS_PROXY = "https://api.allorigins.win/get?url=";
+    const SC_API_URL = `${CORS_PROXY}https://api.soundcloud.com/resolve?url=${TRACK_URL}&client_id=${CLIENT_ID}`;
 
     fetch(SC_API_URL)
       .then((response) => response.json())
       .then((data) => {
         const track = {
           metaData: {
-            title: data.title,
-            artist: data.user.username
+            title: data.contents.title,
+            artist: data.contents.user.username
           },
-          url: `${data.stream_url}?client_id=${CLIENT_ID}`
+          url: `${data.contents.stream_url}?client_id=${CLIENT_ID}`
         };
         webamp.appendTracks([track]);
       })
       .catch((error) =>
         console.error("Error fetching SoundCloud track:", error)
       );
-
-    // Bandcamp API Integration (Beispiel, da Bandcamp API spezifischer ist)
-    const BANDCAMP_TRACK_URL = "URL_ZU_DEINEM_BANDCAMP_TRACK";
-    const BANDCAMP_API_URL = `https://bandcamp.com/api/...`;
-
-    fetch(BANDCAMP_API_URL)
-      .then((response) => response.json())
-      .then((data) => {
-        const track = {
-          metaData: {
-            title: data.title,
-            artist: data.artist
-          },
-          url: data.stream_url
-        };
-        webamp.appendTracks([track]);
-      })
-      .catch((error) => console.error("Error fetching Bandcamp track:", error));
   });
 </script>
 
