@@ -16,7 +16,7 @@
         }
       ],
       initialSkin: {
-        url: "public/Internet_Exlorer_Amp_2.wsz"
+        url: "Internet_Exlorer_Amp_2.wsz"
       }
     });
 
