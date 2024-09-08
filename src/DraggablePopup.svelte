@@ -1,6 +1,5 @@
 <script>
   import { onMount, onDestroy } from "svelte";
-  import p5 from "p5";
 
   export let onClose;
   let popup;
@@ -23,6 +22,16 @@
     cancelAnimationFrame(animationFrame);
   }
 
+  function handleTouchStart(event) {
+    isDragging = true;
+    const touch = event.touches[0];
+    offsetX = touch.clientX - popup.getBoundingClientRect().left;
+    offsetY = touch.clientY - popup.getBoundingClientRect().top;
+    document.addEventListener("touchmove", handleTouchMove);
+    document.addEventListener("touchend", handleTouchEnd);
+    cancelAnimationFrame(animationFrame);
+  }
+
   function handleMouseMove(event) {
     if (isDragging) {
       posX = event.clientX - offsetX;
@@ -31,10 +40,26 @@
     }
   }
 
+  function handleTouchMove(event) {
+    if (isDragging) {
+      const touch = event.touches[0];
+      posX = touch.clientX - offsetX;
+      posY = touch.clientY - offsetY;
+      updatePopupPosition();
+    }
+  }
+
   function handleMouseUp() {
     isDragging = false;
     document.removeEventListener("mousemove", handleMouseMove);
     document.removeEventListener("mouseup", handleMouseUp);
+    requestAnimationFrame(animate);
+  }
+
+  function handleTouchEnd() {
+    isDragging = false;
+    document.removeEventListener("touchmove", handleTouchMove);
+    document.removeEventListener("touchend", handleTouchEnd);
     requestAnimationFrame(animate);
   }
 
@@ -72,8 +97,12 @@
 </script>
 
 <div class="popup" bind:this={popup}>
-  <div class="window" style="width: 300px;">
-    <div class="title-bar" on:mousedown={handleMouseDown}>
+  <div class="window" style="width: 90%; max-width: 300px;">
+    <div
+      class="title-bar"
+      on:mousedown={handleMouseDown}
+      on:touchstart={handleTouchStart}
+    >
       <div class="title-bar-text">🏴‍☠️ 🏴‍☠️ 🏴‍☠️ Pirate Bay 🏴‍☠️ 🏴‍☠️ 🏴‍☠️</div>
 
       <div class="title-bar-controls">

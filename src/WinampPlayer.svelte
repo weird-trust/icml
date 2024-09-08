@@ -228,9 +228,7 @@
 </script>
 
 <div id="winamp-container" style="width: 100vw; height: 100vh;"></div>
-<div class="text-overlay" style="left: {mouseX}px; top: {mouseY}px;">
-  Internet changed my life
-</div>
+<div class="text-overlay" style="left: {mouseX}px; top: {mouseY}px;"></div>
 <img
   src="/images/clippy.gif"
   alt="GIF"
