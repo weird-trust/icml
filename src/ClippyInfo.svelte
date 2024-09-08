@@ -5,20 +5,19 @@
 <div class="popup">
   <div class="window" style="width: 300px;">
     <div class="title-bar">
-      <div class="title-bar-text">Impressum</div>
+      <div class="title-bar-text">Clippy Info</div>
       <div class="title-bar-controls">
         <button aria-label="Close" on:click={onClose}></button>
       </div>
     </div>
     <div class="window-body">
       <p>
-        <strong>Owner:</strong>Simon Apfl<br />
-        <strong>Address:</strong> xxx<br />
-        <strong>Contact:</strong> some mail
-      </p>
-      <p>
-        <strong>Interface Design & Code</strong><br />
-        <a href="https://robertburtzik.com">Robert Burtzik</a><br />
+        Hi, I'm Clippy! I'm excited to be here and always ready to help those
+        who believe in the good and special things on the internet, in
+        collaboration, and in music. I love it when people create their own
+        unique little websites and I hope to see more of that in the future.
+        Otherwise, everything ends up looking the same and that's super
+        annoying.
       </p>
       <button class="button" on:click={onClose}>Close</button>
     </div>

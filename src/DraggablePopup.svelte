@@ -11,8 +11,8 @@
 
   let posX = 100;
   let posY = 100;
-  let speedX = 6;
-  let speedY = 6;
+  let speedX = 1;
+  let speedY = 1;
 
   function handleMouseDown(event) {
     isDragging = true;
@@ -20,7 +20,7 @@
     offsetY = event.clientY - popup.getBoundingClientRect().top;
     document.addEventListener("mousemove", handleMouseMove);
     document.addEventListener("mouseup", handleMouseUp);
-    cancelAnimationFrame(animationFrame); // Stoppe die Animation während des Dragging
+    cancelAnimationFrame(animationFrame);
   }
 
   function handleMouseMove(event) {
@@ -74,7 +74,7 @@
 <div class="popup" bind:this={popup}>
   <div class="window" style="width: 300px;">
     <div class="title-bar" on:mousedown={handleMouseDown}>
-      <div class="title-bar-text">Pirate Bay 🏴‍☠️</div>
+      <div class="title-bar-text">🏴‍☠️ 🏴‍☠️ 🏴‍☠️ Pirate Bay 🏴‍☠️ 🏴‍☠️ 🏴‍☠️</div>
 
       <div class="title-bar-controls">
         <button aria-label="Close" on:click={onClose}></button>

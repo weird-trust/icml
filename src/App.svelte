@@ -57,8 +57,14 @@
     <GlitchEffect />
     <WinampPlayer {startPlaying} />
     <div class="footer-links">
-      <a href="javascript:void(0)" on:click={handleShowAbout}>About</a>
-      <a href="javascript:void(0)" on:click={handleShowImpressum}>Impressum</a>
+      <button class="footer-link" on:click={handleShowAbout}>
+        <img src="/images/about.gif" alt="About" class="footer-gif" />
+        <div>About</div>
+      </button>
+      <button class="footer-link" on:click={handleShowImpressum}>
+        <img src="/images/impressum.gif" alt="Impressum" class="footer-gif" />
+        <div>Impressum</div>
+      </button>
     </div>
   {/if}
   {#if showPopupLinks}
@@ -81,6 +87,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-color: #f0f0f0;
   }
 
   .footer-links {
@@ -90,17 +97,32 @@
     transform: translateX(-50%);
     display: flex;
     gap: 20px;
-    z-index: 1000;
   }
 
-  .footer-links a {
-    color: white;
-    text-decoration: none;
+  .footer-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .footer-gif {
+    width: 50px;
+    height: auto;
+  }
+
+  .footer-link div {
+    text-align: center;
+    margin-top: 5px;
     font-family: "Microsoft Sans Serif", sans-serif;
     font-size: 12px;
+    color: white;
   }
 
-  .footer-links a:hover {
-    text-decoration: underline;
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
   }
 </style>

@@ -57,7 +57,7 @@
   .window {
     border: 2px solid #000;
     background: #c0c0c0;
-    box-shadow: 5px 5px 0 #000;
+    box-shadow: 5px 5px 0 #0000007a;
   }
 
   .title-bar {

@@ -1,11 +1,28 @@
 <script>
   import { onMount, onDestroy } from "svelte";
   import Webamp from "webamp";
-  import PopupLinks from "./PopupLinks.svelte";
+  import SpeechBubble from "./SpeechBubble.svelte";
+  import About from "./About.svelte";
+  import Platforms from "./Platforms.svelte";
+  import ArtistInfo from "./ArtistInfo.svelte";
+  import ClippyInfo from "./ClippyInfo.svelte";
+  import Impressum from "./Impressum.svelte";
+  import Screensaver from "./Screensaver.svelte";
+  import PartyMode from "./PartyMode.svelte";
 
   let webamp;
   let showPopup = false;
+  let showAbout = false;
+  let showPlatforms = false;
+  let showArtistInfo = false;
+  let showClippyInfo = false;
+  let showImpressum = false;
+  let showScreensaver = false;
+  let showPartyMode = false;
   let jumpInterval;
+  let inactivityTimeout;
+  let mouseX = 0;
+  let mouseY = 0;
 
   export let startPlaying = false;
 
@@ -13,8 +30,66 @@
     showPopup = true;
   }
 
+  function handlePartyGifClick() {
+    showPartyMode = true;
+  }
+
   function handleClosePopup() {
     showPopup = false;
+  }
+
+  function handleShowAbout() {
+    showAbout = true;
+    showPopup = false;
+  }
+
+  function handleCloseAbout() {
+    showAbout = false;
+  }
+
+  function handleShowPlatforms() {
+    showPlatforms = true;
+    showPopup = false;
+  }
+
+  function handleClosePlatforms() {
+    showPlatforms = false;
+  }
+
+  function handleShowArtistInfo() {
+    showArtistInfo = true;
+    showPopup = false;
+  }
+
+  function handleCloseArtistInfo() {
+    showArtistInfo = false;
+  }
+
+  function handleShowClippyInfo() {
+    showClippyInfo = true;
+    showPopup = false;
+  }
+
+  function handleCloseClippyInfo() {
+    showClippyInfo = false;
+  }
+
+  function handleShowImpressum() {
+    showImpressum = true;
+    showPopup = false;
+  }
+
+  function handleCloseImpressum() {
+    showImpressum = false;
+  }
+
+  function handleShowScreensaver() {
+    showScreensaver = true;
+  }
+
+  function handleCloseScreensaver() {
+    showScreensaver = false;
+    resetInactivityTimeout();
   }
 
   function startJumping() {
@@ -23,6 +98,16 @@
     setTimeout(() => {
       gif.classList.remove("jump");
     }, 1000); // Animation dauert 1 Sekunde
+  }
+
+  function resetInactivityTimeout() {
+    clearTimeout(inactivityTimeout);
+    inactivityTimeout = setTimeout(handleShowScreensaver, 10000); // 10 Sekunden Inaktivität
+  }
+
+  function handleMouseMove(event) {
+    mouseX = event.clientX;
+    mouseY = event.clientY;
   }
 
   onMount(() => {
@@ -117,12 +202,24 @@
       () => {
         startJumping();
       },
-      Math.random() * 500 + 300
+      Math.random() * 5000 + 3000
     ); // Springe alle 3-8 Sekunden
+
+    // Setze den Inaktivitäts-Timeout
+    resetInactivityTimeout();
+
+    // Event-Listener für Benutzeraktivität
+    window.addEventListener("mousemove", resetInactivityTimeout);
+    window.addEventListener("keydown", resetInactivityTimeout);
+    window.addEventListener("mousemove", handleMouseMove);
   });
 
   onDestroy(() => {
     clearInterval(jumpInterval); // Stoppe das Intervall, wenn die Komponente zerstört wird
+    clearTimeout(inactivityTimeout); // Stoppe den Inaktivitäts-Timeout
+    window.removeEventListener("mousemove", resetInactivityTimeout);
+    window.removeEventListener("keydown", resetInactivityTimeout);
+    window.removeEventListener("mousemove", handleMouseMove);
   });
 
   $: if (startPlaying && webamp) {
@@ -130,33 +227,97 @@
   }
 </script>
 
-<div id="winamp-container"></div>
+<div id="winamp-container" style="width: 100vw; height: 100vh;"></div>
+<div class="text-overlay" style="left: {mouseX}px; top: {mouseY}px;">
+  Internet changed my life
+</div>
 <img
   src="/images/clippy.gif"
   alt="GIF"
   class="bottom-right-gif jump"
   on:click={handleGifClick}
 />
+<img
+  src="/images/party.gif"
+  alt="Party GIF"
+  class="bottom-left-gif"
+  on:click={handlePartyGifClick}
+/>
 
 {#if showPopup}
-  <PopupLinks onClose={handleClosePopup} />
+  <SpeechBubble
+    onClose={handleClosePopup}
+    onShowAbout={handleShowAbout}
+    onShowPopupLinks={handleShowPlatforms}
+    onShowArtistInfo={handleShowArtistInfo}
+    onShowClippyInfo={handleShowClippyInfo}
+  ></SpeechBubble>
+{/if}
+
+{#if showAbout}
+  <About onClose={handleCloseAbout} />
+{/if}
+
+{#if showPlatforms}
+  <Platforms onClose={handleClosePlatforms} />
+{/if}
+
+{#if showArtistInfo}
+  <ArtistInfo onClose={handleCloseArtistInfo} />
+{/if}
+
+{#if showClippyInfo}
+  <ClippyInfo onClose={handleCloseClippyInfo} />
+{/if}
+
+{#if showImpressum}
+  <Impressum onClose={handleCloseImpressum} />
+{/if}
+
+{#if showScreensaver}
+  <Screensaver onClose={handleCloseScreensaver} />
+{/if}
+
+{#if showPartyMode}
+  <PartyMode />
 {/if}
 
 <style>
   #winamp-container {
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .text-overlay {
+    position: fixed;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 32px;
+    color: #2f00ff;
+    text-shadow: 2px 2px #000000;
+    z-index: 1002;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
   }
 
   .bottom-right-gif {
     position: fixed;
     bottom: 10px;
     right: 10px;
-    width: 100px; /* Passe die Größe des GIFs an */
+    width: 100px;
     height: auto;
-    z-index: 1001; /* Stelle sicher, dass das GIF über anderen Elementen liegt */
+    z-index: 1001;
     cursor: pointer;
-    transition: transform 0.5s cubic-bezier(0.5, 0.05, 1, 0.5); /* Übergangseffekt für das Springen */
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .bottom-left-gif {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    width: 100px;
+    height: auto;
+    z-index: 1001;
+    cursor: pointer;
   }
 
   .bottom-right-gif.jump {

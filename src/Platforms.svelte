@@ -5,21 +5,18 @@
 <div class="popup">
   <div class="window" style="width: 300px;">
     <div class="title-bar">
-      <div class="title-bar-text">Impressum</div>
+      <div class="title-bar-text">Platforms</div>
       <div class="title-bar-controls">
         <button aria-label="Close" on:click={onClose}></button>
       </div>
     </div>
     <div class="window-body">
-      <p>
-        <strong>Owner:</strong>Simon Apfl<br />
-        <strong>Address:</strong> xxx<br />
-        <strong>Contact:</strong> some mail
-      </p>
-      <p>
-        <strong>Interface Design & Code</strong><br />
-        <a href="https://robertburtzik.com">Robert Burtzik</a><br />
-      </p>
+      <p>You can listen to or buy the album on the following platforms:</p>
+      <ul>
+        <li><a href="https://spotify.com" target="_blank">Spotify</a></li>
+        <li><a href="https://bandcamp.com" target="_blank">Bandcamp</a></li>
+        <li><a href="https://itunes.com" target="_blank">iTunes</a></li>
+      </ul>
       <button class="button" on:click={onClose}>Close</button>
     </div>
   </div>
@@ -97,5 +94,10 @@
 
   .button:active {
     box-shadow: inset 2px 2px 0 #000;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
   }
 </style>

@@ -5,21 +5,27 @@
 <div class="popup">
   <div class="window" style="width: 300px;">
     <div class="title-bar">
-      <div class="title-bar-text">Impressum</div>
+      <div class="title-bar-text">Artist Info</div>
       <div class="title-bar-controls">
         <button aria-label="Close" on:click={onClose}></button>
       </div>
     </div>
     <div class="window-body">
-      <p>
-        <strong>Owner:</strong>Simon Apfl<br />
-        <strong>Address:</strong> xxx<br />
-        <strong>Contact:</strong> some mail
-      </p>
-      <p>
-        <strong>Interface Design & Code</strong><br />
-        <a href="https://robertburtzik.com">Robert Burtzik</a><br />
-      </p>
+      <p>You can find more about the artist on the following platforms:</p>
+      <ul>
+        <li>
+          <a href="https://artistwebsite.com" target="_blank"
+            >Official Website</a
+          >
+        </li>
+        <li>
+          <a href="https://instagram.com/artist" target="_blank">Instagram</a>
+        </li>
+        <li>
+          <a href="https://twitter.com/artist" target="_blank">Twitter</a>
+        </li>
+        <!-- Weitere Plattformen hier hinzufügen -->
+      </ul>
       <button class="button" on:click={onClose}>Close</button>
     </div>
   </div>
@@ -97,5 +103,10 @@
 
   .button:active {
     box-shadow: inset 2px 2px 0 #000;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
   }
 </style>
