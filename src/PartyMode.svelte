@@ -17,9 +17,6 @@
     p.setup = () => {
       canvas = p.createCanvas(p.windowWidth, p.windowHeight);
       p.noCursor();
-      if (window.DeviceOrientationEvent) {
-        window.addEventListener("deviceorientation", handleOrientation);
-      }
     };
 
     p.draw = () => {
@@ -36,18 +33,9 @@
       p.image(glitchImage, posX + p.random(-10, 10), posY + p.random(-10, 10));
     }
 
-    function handleOrientation(event) {
-      const tiltX = event.gamma; // left-to-right tilt in degrees
-      const tiltY = event.beta; // front-to-back tilt in degrees
-
-      // Map the tiltX and tiltY values to the screen width and height
-      posX = p.map(tiltX, -90, 90, 0, p.width);
-      posY = p.map(tiltY, -90, 90, 0, p.height);
-    }
-
     p.mouseMoved = () => {
-      posX = p.mouseX - 75;
-      posY = p.mouseY - 75;
+      posX = p.mouseX - 75; // Zentriere das Bild auf den Cursor
+      posY = p.mouseY - 75; // Zentriere das Bild auf den Cursor
     };
 
     p.windowResized = () => {
@@ -66,7 +54,6 @@
     if (sketch) {
       sketch.remove();
     }
-    window.removeEventListener("deviceorientation", handleOrientation);
   });
 </script>
 

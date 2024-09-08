@@ -45,6 +45,20 @@
     box-shadow: 5px 5px 0 #00000067;
     z-index: 1002; /* Stelle sicher, dass die Sprechblase über anderen Elementen liegt */
   }
+  @media (max-width: 768px) {
+    .speech-bubble {
+      top: 110px;
+      bottom: auto;
+      right: 20px;
+    }
+
+    .speech-bubble-arrow {
+      position: absolute;
+      top: -20px;
+      right: 20px;
+      transform: rotate(180deg);
+    }
+  }
 
   .speech-bubble-content {
     padding: 10px;
