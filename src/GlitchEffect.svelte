@@ -22,7 +22,7 @@
           p.mouseX > posX &&
           p.mouseX < posX + 300 &&
           p.mouseY > posY &&
-          p.mouseY < posY + 20 // Nur die Titelzeile ist verschiebbar
+          p.mouseY < posY + 20
         ) {
           isDragging = true;
           offsetX = p.mouseX - posX;

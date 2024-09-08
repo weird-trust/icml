@@ -9,6 +9,7 @@
   import Impressum from "./Impressum.svelte";
   import Screensaver from "./Screensaver.svelte";
   import PartyMode from "./PartyMode.svelte";
+  import DraggablePopup from "./DraggablePopup.svelte";
 
   let webamp;
   let showPopup = false;
@@ -19,6 +20,7 @@
   let showImpressum = false;
   let showScreensaver = false;
   let showPartyMode = false;
+  let showDraggablePopup = false;
   let jumpInterval;
   let inactivityTimeout;
   let mouseX = 0;
@@ -32,6 +34,10 @@
 
   function handlePartyGifClick() {
     showPartyMode = true;
+  }
+
+  function handleDownloadGifClick() {
+    showDraggablePopup = true;
   }
 
   function handleClosePopup() {
@@ -228,7 +234,6 @@
 </script>
 
 <div id="winamp-container" style="width: 100vw; height: 100vh;"></div>
-<div class="text-overlay" style="left: {mouseX}px; top: {mouseY}px;"></div>
 <img
   src="/images/clippy.gif"
   alt="GIF"
@@ -280,21 +285,14 @@
   <PartyMode />
 {/if}
 
+{#if showDraggablePopup}
+  <DraggablePopup onClose={() => (showDraggablePopup = false)} />
+{/if}
+
 <style>
   #winamp-container {
     width: 100vw;
     height: 100vh;
-  }
-
-  .text-overlay {
-    position: fixed;
-    font-family: "Comic Sans MS", cursive, sans-serif;
-    font-size: 32px;
-    color: #2f00ff;
-    text-shadow: 2px 2px #000000;
-    z-index: 1002;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
   }
 
   .bottom-right-gif {
@@ -312,6 +310,31 @@
     position: fixed;
     bottom: 10px;
     left: 10px;
+    width: 100px;
+    height: auto;
+    z-index: 1001;
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    .bottom-right-gif {
+      top: 20px;
+      bottom: auto;
+      right: 20px;
+    }
+
+    .bottom-left-gif {
+      top: 10px;
+      bottom: auto;
+      left: 10px;
+    }
+  }
+
+  .bottom-center-gif {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
     width: 100px;
     height: auto;
     z-index: 1001;

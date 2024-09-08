@@ -13,7 +13,7 @@
   let showPopupLinks = false;
   let showAbout = false;
   let showImpressum = false;
-  let showDraggablePopup = true; // Initial geöffnet
+  let showDraggablePopup = false;
 
   function handleClosePopup() {
     showPlayer = true;
@@ -44,6 +44,9 @@
     showImpressum = false;
   }
 
+  function handleShowDraggablePopup() {
+    showDraggablePopup = true;
+  }
   function handleCloseDraggablePopup() {
     showDraggablePopup = false;
   }
@@ -64,6 +67,10 @@
       <button class="footer-link" on:click={handleShowImpressum}>
         <img src="/images/impressum.gif" alt="Impressum" class="footer-gif" />
         <div>Impressum</div>
+      </button>
+      <button class="footer-link" on:click={handleShowDraggablePopup}>
+        <img src="/images/download.gif" alt="Download" class="footer-gif" />
+        <div>Download</div>
       </button>
     </div>
   {/if}
@@ -120,7 +127,6 @@
   }
 
   button {
-    background: none;
     border: none;
     cursor: pointer;
     padding: 5px;
