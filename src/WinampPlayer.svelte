@@ -121,10 +121,10 @@
       initialTracks: [
         {
           metaData: {
-            title: "ARP505-Jonas-Gottlieb-Afterhour-Mix",
+            title: "Internet_Life",
             artist: "A P F L"
           },
-          url: "/audio/ARP505-Jonas-Gottlieb-Afterhour-Mix.mp3"
+          url: "/audio/Internet_Life.mp3"
         },
         {
           metaData: {
@@ -135,38 +135,10 @@
         },
         {
           metaData: {
-            title: "Dad-Groove",
-            artist: "A P F L"
-          },
-          url: "/audio/Dad-Groove.mp3"
-        },
-        {
-          metaData: {
-            title: "Internet_Life",
-            artist: "A P F L"
-          },
-          url: "/audio/Internet_Life.mp3"
-        },
-        {
-          metaData: {
-            title: "Neuro-Anwohner-Easly-Mix",
-            artist: "A P F L"
-          },
-          url: "/audio/Neuro-Anwohner-Easly-Mix.mp3"
-        },
-        {
-          metaData: {
             title: "Neuro",
             artist: "A P F L"
           },
           url: "/audio/Neuro.mp3"
-        },
-        {
-          metaData: {
-            title: "T6-Christian-Kluge-Remix",
-            artist: "A P F L"
-          },
-          url: "/audio/T6-Christian-Kluge-Remix.mp3"
         },
         {
           metaData: {
@@ -177,17 +149,49 @@
         },
         {
           metaData: {
-            title: "Vactrol-Funk-SV-Breakpoint-Mix.mp3",
-            artist: "A P F L"
-          },
-          url: "/audio/Vactrol-Funk-SV-Breakpoint-Mix.mp3"
-        },
-        {
-          metaData: {
             title: "Vactrol",
             artist: "A P F L"
           },
           url: "/audio/Vactrol.mp3"
+        },
+
+        {
+          metaData: {
+            title: "Dad-Groove",
+            artist: "A P F L"
+          },
+          url: "/audio/Dad-Groove.mp3"
+        },
+        {
+          metaData: {
+            title: "ARP505-Jonas-Gottlieb-Afterhour-Mix",
+            artist: "A P F L"
+          },
+          url: "/audio/ARP505-Jonas-Gottlieb-Afterhour-Mix.mp3"
+        },
+
+        {
+          metaData: {
+            title: "Neuro-Anwohner-Easly-Mix",
+            artist: "A P F L"
+          },
+          url: "/audio/Neuro-Anwohner-Easly-Mix.mp3"
+        },
+
+        {
+          metaData: {
+            title: "T6-Christian-Kluge-Remix",
+            artist: "A P F L"
+          },
+          url: "/audio/T6-Christian-Kluge-Remix.mp3"
+        },
+
+        {
+          metaData: {
+            title: "Vactrol-Funk-SV-Breakpoint-Mix.mp3",
+            artist: "A P F L"
+          },
+          url: "/audio/Vactrol-Funk-SV-Breakpoint-Mix.mp3"
         }
       ],
       initialSkin: {
@@ -291,8 +295,9 @@
 
 <style>
   #winamp-container {
-    width: 100vw;
-    height: 100vh;
+    width: 100px;
+    height: auto;
+    border: 10px solid red;
   }
 
   .bottom-right-gif {
@@ -316,7 +321,7 @@
     cursor: pointer;
   }
 
-  @media (max-width: 768px) {
+  /* @media (max-width: 768px) {
     .bottom-right-gif {
       top: 20px;
       bottom: auto;
@@ -328,7 +333,7 @@
       bottom: auto;
       left: 10px;
     }
-  }
+  } */
 
   .bottom-center-gif {
     position: fixed;

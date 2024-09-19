@@ -13,9 +13,22 @@
     <div class="window-body">
       <p>You can listen to or buy the album on the following platforms:</p>
       <ul>
-        <li><a href="https://spotify.com" target="_blank">Spotify</a></li>
-        <li><a href="https://bandcamp.com" target="_blank">Bandcamp</a></li>
-        <li><a href="https://itunes.com" target="_blank">iTunes</a></li>
+        <li>
+          <a
+            href="https://open.spotify.com/artist/6O5XiAvTZQ0dXGYgpK7JEl?si=3srj93GYTjOQ7woT79se-Q"
+            target="_blank">Spotify</a
+          >
+        </li>
+        <li>
+          <a href="https://institutut.bandcamp.com/" target="_blank">Bandcamp</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://music.apple.com/de/artist/a-p-f-l/1700533936?l=en-GB"
+            target="_blank">Apple Music</a
+          >
+        </li>
       </ul>
       <button class="button" on:click={onClose}>Close</button>
     </div>

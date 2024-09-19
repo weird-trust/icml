@@ -5,8 +5,8 @@
   let gifElement;
   let posX = 100;
   let posY = 100;
-  let speedX = 2;
-  let speedY = 2;
+  let speedX = 3;
+  let speedY = 3;
   let animationFrame;
 
   function moveGif() {
@@ -44,8 +44,9 @@
 
 <div class="screensaver" on:click={handleClick}>
   <img
-    src="/images/windows95.png"
+    src="/images/icml_screensaver.png"
     alt="Windows Screensaver"
+    class="rotating"
     bind:this={gifElement}
   />
 </div>
@@ -57,7 +58,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: black;
+    background: rgb(157, 157, 157);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -66,7 +67,20 @@
   }
 
   .screensaver img {
-    width: 100px; /* Passe die Größe des GIFs an */
+    width: 200px;
     height: auto;
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .rotating {
+    animation: rotate 5s linear infinite;
   }
 </style>

@@ -14,15 +14,9 @@
       <p>You can find more about the artist on the following platforms:</p>
       <ul>
         <li>
-          <a href="https://artistwebsite.com" target="_blank"
-            >Official Website</a
+          <a href="https://instagram.com/actionschorle" target="_blank"
+            >Instagram</a
           >
-        </li>
-        <li>
-          <a href="https://instagram.com/artist" target="_blank">Instagram</a>
-        </li>
-        <li>
-          <a href="https://twitter.com/artist" target="_blank">Twitter</a>
         </li>
         <!-- Weitere Plattformen hier hinzufügen -->
       </ul>

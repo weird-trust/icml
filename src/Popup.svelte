@@ -47,7 +47,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgb(14, 110, 110);
+    background-color: rgb(96, 1, 255);
     display: flex;
     justify-content: center;
     align-items: center;

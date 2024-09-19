@@ -66,6 +66,6 @@
     width: 100%;
     height: 100%;
     z-index: 0; /* Hinter dem Player */
-    background-color: rgb(14, 110, 110);
+    background-color: rgb(96, 1, 255);
   }
 </style>

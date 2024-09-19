@@ -13,8 +13,8 @@
     <div class="window-body">
       <p>
         <strong>Owner:</strong>Simon Apfl<br />
-        <strong>Address:</strong> xxx<br />
-        <strong>Contact:</strong> some mail
+        <strong>Address:</strong>Weltinstitut, 12345 Weltstadt<br />
+        <strong>Contact:</strong> institut.welt@gmail.com
       </p>
       <p>
         <strong>Interface Design & Code</strong><br />

@@ -105,6 +105,13 @@
     display: flex;
     gap: 20px;
   }
+  @media (max-width: 768px) {
+    .footer-links {
+      top: 20px;
+      bottom: auto;
+      justify-content: center;
+    }
+  }
 
   .footer-link {
     display: flex;
