@@ -42,14 +42,19 @@
   });
 </script>
 
-<div class="screensaver" on:click={handleClick}>
+<button
+  class="screensaver"
+  on:click={handleClick}
+  on:keydown={(e) => e.key === "Enter" && handleClick()}
+  aria-label="Close screensaver"
+>
   <img
     src="/images/icml_screensaver.png"
     alt="Windows Screensaver"
     class="rotating"
     bind:this={gifElement}
   />
-</div>
+</button>
 
 <style>
   .screensaver {

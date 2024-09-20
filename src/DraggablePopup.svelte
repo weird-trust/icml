@@ -10,8 +10,8 @@
 
   let posX = 100;
   let posY = 100;
-  let speedX = 1;
-  let speedY = 1;
+  let speedX = 0.5;
+  let speedY = 0.5;
 
   function handleMouseDown(event) {
     isDragging = true;
@@ -94,12 +94,19 @@
   onDestroy(() => {
     cancelAnimationFrame(animationFrame);
   });
+
+  function handleDownloadClick() {
+    window.location.href = "https://institutut.bandcamp.com/";
+    onClose();
+  }
 </script>
 
 <div class="popup" bind:this={popup}>
   <div class="window" style="width: 90%; max-width: 300px;">
     <div
       class="title-bar"
+      role="button"
+      tabindex="0"
       on:mousedown={handleMouseDown}
       on:touchstart={handleTouchStart}
     >
@@ -111,7 +118,7 @@
     </div>
     <div class="window-body">
       <p>You want to pirate this album? Come and get me!</p>
-      <button class="button" on:click={onClose}>Download</button>
+      <button class="button" on:click={handleDownloadClick}>Download</button>
     </div>
   </div>
 </div>

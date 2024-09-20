@@ -14,11 +14,11 @@
       <p>
         <strong>Owner:</strong>Simon Apfl<br />
         <strong>Address:</strong>Weltinstitut, 12345 Weltstadt<br />
-        <strong>Contact:</strong> institut.welt@gmail.com
+        <strong>Contact:</strong>institut.welt@gmail.com
       </p>
       <p>
         <strong>Interface Design & Code</strong><br />
-        <a href="https://robertburtzik.com">Robert Burtzik</a><br />
+        <a href="https://instagram.com/rburtzik">Robert Burtzik</a><br />
       </p>
       <button class="button" on:click={onClose}>Close</button>
     </div>
